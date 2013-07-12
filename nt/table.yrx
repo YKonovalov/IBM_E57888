@@ -1,0 +1,49 @@
+NumLck	01      69
+
+CpsLck	1D      58
+
+Plus	37      78
+LCtrl	38      29
+
+RCtrl	3a      29
+
+Slash	45      53
+Star	46      55
+
+Enter	4e      28
+
+Minus	54      74
+Down	55      80
+Left	56      75
+F1	58      59
+F2	59      60
+F3	5A      61
+F4	5B      62
+F5	5C      63
+F6	5D      64
+F7	5E      65
+F8	5F      66
+F9	60      67
+F10	61      68
+F11	62      87
+F12	63      88
+ESC	64	1
+
+PrScr	6e      1
+PgUp	6F      73
+BckSlsh	70      43
+LAlt	71      56
+RAlt	72      56
+
+Tilda	74      41
+
+ScrLck	76      70
+Pause	77      69
+Up	78      72
+Delete	79      83
+End	7a      79
+Insert	7B      82
+Right	7D      77
+PgDn	7e      81
+Home	7F      71
+

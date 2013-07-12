@@ -1,0 +1,75 @@
+--- keyboard.c.old	1997-08-12 01:42:12.000000000 +0400
++++ keyboard.c	1999-03-15 02:02:40.000000000 +0300
+@@ -259,13 +259,55 @@
+ #define RGN3 126
+ #define RGN4 127
+ 
++//static unsigned char high_keys[128 - SC_LIM] = {
++//  RGN1, RGN2, RGN3, RGN4, 0, 0, 0,                   /* 0x59-0x5f */
++//  0, 0, 0, 0, 0, 0, 0, 0,                            /* 0x60-0x67 */
++//  0, 0, 0, 0, 0, FOCUS_PF11, 0, FOCUS_PF12,          /* 0x68-0x6f */
++//  0, 0, 0, FOCUS_PF2, FOCUS_PF9, 0, 0, FOCUS_PF3,    /* 0x70-0x77 */
++//  FOCUS_PF4, FOCUS_PF5, FOCUS_PF6, FOCUS_PF7,        /* 0x78-0x7b */
++//  FOCUS_PF8, JAP_86, FOCUS_PF10, 0                   /* 0x7c-0x7f */
++//};
++
++#define IBME57888_F2		60           /* actual code! */
++#define IBME57888_F3		61
++#define IBME57888_F4		62
++#define IBME57888_F5		63
++#define IBME57888_F6		64
++#define IBME57888_F7		65
++#define IBME57888_F8		66
++#define IBME57888_F9		67
++#define IBME57888_F10		68
++#define IBME57888_F11		87
++#define IBME57888_F12		89
++#define IBME57888_ESC		112
++
++#define IBME57888_PRSCR		99
++#define IBME57888_PGUP		104
++
++#define IBME57888_BACKSLASH	43
++#define IBME57888_ALTL		113
++#define IBME57888_ALTR		100
++
++#define IBME57888_TILDA		114
++
++#define IBME57888_SCRLOCK	115
++#define IBME57888_PAUSE		101
++#define IBME57888_UP		103
++#define IBME57888_DEL		111
++#define IBME57888_END		107
++#define IBME57888_INS		110
++
++#define IBME57888_RIGHT		106
++#define IBME57888_PGDN		109
++#define IBME57888_HOME		102
++
+ static unsigned char high_keys[128 - SC_LIM] = {
+-  RGN1, RGN2, RGN3, RGN4, 0, 0, 0,                   /* 0x59-0x5f */
+-  0, 0, 0, 0, 0, 0, 0, 0,                            /* 0x60-0x67 */
+-  0, 0, 0, 0, 0, FOCUS_PF11, 0, FOCUS_PF12,          /* 0x68-0x6f */
+-  0, 0, 0, FOCUS_PF2, FOCUS_PF9, 0, 0, FOCUS_PF3,    /* 0x70-0x77 */
+-  FOCUS_PF4, FOCUS_PF5, FOCUS_PF6, FOCUS_PF7,        /* 0x78-0x7b */
+-  FOCUS_PF8, JAP_86, FOCUS_PF10, 0                   /* 0x7c-0x7f */
++  IBME57888_F2, IBME57888_F3, IBME57888_F4, IBME57888_F5, IBME57888_F6, IBME57888_F7, IBME57888_F8,			/* 0x59-0x5f */
++  IBME57888_F9, IBME57888_F10, IBME57888_F11, IBME57888_F12, IBME57888_ESC, 0, 0, 0,					/* 0x60-0x67 */
++  0, 0, 0, 0, 0, 0, IBME57888_PRSCR, IBME57888_PGUP,									/* 0x68-0x6f */
++  IBME57888_BACKSLASH, IBME57888_ALTL, IBME57888_ALTR, 0, IBME57888_TILDA, 0, IBME57888_SCRLOCK, IBME57888_PAUSE,	/* 0x70-0x77 */
++  IBME57888_UP, IBME57888_DEL, IBME57888_END, IBME57888_INS,								/* 0x78-0x7b */
++  0, IBME57888_RIGHT, IBME57888_PGDN, IBME57888_HOME									/* 0x7c-0x7f */
+ };
+ 
+ /* BTC */
+@@ -397,8 +439,8 @@
+ 	}
+ 
+ 	if (scancode == 0xe0 || scancode == 0xe1) {
+-		prev_scancode = scancode;
+-		return;
++//		prev_scancode = scancode;
++//		return;
+  	}
+ 
+  	/*
